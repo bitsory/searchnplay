@@ -14,15 +14,18 @@ class Showbox extends Component {
     render() {
         
         const videoTitle = this.props.boxProp.name.title;
-        const thumbNail = this.props.boxProp.name.thumbnails.default.url;
+        const channelTitle = this.props.boxProp.name.channelTitle;
+        const thumbNail = this.props.boxProp.name.thumbnails.medium.url;
         
         return (
             <>
                 <div className="showbox">
                         <span className='video' onClick={this.play}>
-                            <embed type="image/jpg" src={thumbNail}></embed>
-                            <p>{videoTitle}</p>
-                        
+                            <embed className='thumbNail' type="image/jpg" src={thumbNail}></embed>
+                            <div className='description'>
+                            <div className='videoTitle'>{videoTitle}</div>
+                            <div className='channelTitle'>{channelTitle}</div>
+                            </div>
                         </span>
                 
                     

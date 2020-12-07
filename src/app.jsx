@@ -4,12 +4,14 @@ import './app.css';
 
 import Navbar from './components/navbar.jsx';
 import Showbox from './components/showbox.jsx';
+import Play from './components/play.jsx';
 
 
 class App extends Component {
   state = {
 
-    videos: []
+    videos: [],
+    selectedVideo : null
 
   };
 
@@ -42,6 +44,7 @@ class App extends Component {
       this.setState({videos : videos});
 
       console.log(this.state.videos);
+      console.log(this.state.selectedVideo);
 
     })
     
@@ -76,6 +79,7 @@ handleSearch = (name) => {
     
     
     this.setState({videos : videos});
+    this.setState({selectedVideo : null});
 
     console.log(this.state.videos);
 
@@ -84,13 +88,14 @@ handleSearch = (name) => {
   .catch(error => console.log('error', error));
 }
 
-handlePlay(event) {
+handlePlay = (event) => {
   const playItem = event;
   console.log(playItem);
-  var strWindowFeatures = "location=yes,height=570,width=520,scrollbars=yes,status=yes";
-  var URL = `https://www.youtube.com/embed/${playItem}`;
-  window.open(URL, "_blank", strWindowFeatures);
   console.log("handlePlay");
+  this.setState({selectedVideo : playItem});
+  console.log(this.state.selectedVideo);
+  
+
 }
 
   render () {
@@ -102,18 +107,22 @@ handlePlay(event) {
           OnSearch={this.handleSearch}
         ></Navbar>}
         
-        {
+        <section className="mainPage">
+        { !this.state.selectedVideo &&
         this.state.videos.map( (video) =>
           <Showbox
           key={video.id}
-          // boxPropTitle = {video.name.title}
-          // boxPropThumbnail = {video.name.thumbnails.default.url}
+          
           boxProp = {video}
           OnPlay={this.handlePlay}
         >
           
           </Showbox>
         )}
+        {this.state.selectedVideo && <Play
+        playProp = {this.state.selectedVideo}
+        ></Play>}
+        </section>
       </>
     );
   };

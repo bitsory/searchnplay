@@ -22,8 +22,8 @@ class Navbar extends Component {
                     <input 
                         ref={this.inputRef}
                         className='search-input'
-                        placeholder='search' 
-                        size="20"></input>
+                        placeholder='search..' 
+                        size="50"></input>
                     <button className='search-btn'><i className="fas fa-search"></i></button>
 
                 </form>
