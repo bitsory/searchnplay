@@ -88,8 +88,8 @@ handleSearch = (name) => {
   .catch(error => console.log('error', error));
 }
 
-handlePlay = (event) => {
-  const playItem = event;
+handlePlay = (item) => {
+  const playItem = item;
   console.log(playItem);
   console.log("handlePlay");
   this.setState({selectedVideo : playItem});
@@ -111,18 +111,35 @@ handlePlay = (event) => {
         { !this.state.selectedVideo &&
         this.state.videos.map( (video) =>
           <Showbox
-          key={video.id}
-          
-          boxProp = {video}
-          OnPlay={this.handlePlay}
-        >
-          
+            key={video.id}
+            
+            boxProp = {video}
+            OnPlay={this.handlePlay}>          
           </Showbox>
         )}
-        {this.state.selectedVideo && <Play
-        playProp = {this.state.selectedVideo}
-        ></Play>}
         </section>
+        <section className='playPage'>
+          <section className='playingVideo'>
+            {this.state.selectedVideo && 
+              <Play
+              playProp = {this.state.selectedVideo}>
+              </Play>
+            }    
+          </section> 
+
+          <section className='playPageList'>
+            {this.state.selectedVideo &&
+            this.state.videos.map( (video) =>
+            <Showbox
+              key={video.id}
+              
+              boxProp = {video}
+              OnPlay={this.handlePlay}>          
+            </Showbox>
+            )}
+          </section>  
+        </section>
+        
       </>
     );
   };

@@ -7,12 +7,18 @@ class Play extends Component {
 
         const selectedVideo = this.props.playProp;
         
+        
 
         return (
             <> 
-             <iframe id="player" type="text/html" width="640" height="360" 
-                src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
-                frameborder="1"></iframe>
+             <iframe className="player" title="youtube video player" type="text/html" width="800" height="480" 
+                src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1`}
+                frameBorder="1" allowFullScreen={true}></iframe>
+            <div className='selectedDescription'><br></br>
+                <span className='selectedTitle'>Title : {selectedVideo.name.title}</span><br></br>
+                <span className='selectedPublishedAt'>Published : {selectedVideo.name.publishedAt}</span><br></br>
+                <span className='selectedDes'>description : {selectedVideo.name.description}</span>
+            </div>
   
     
             </>

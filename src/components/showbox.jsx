@@ -5,8 +5,8 @@ class Showbox extends Component {
     
     play = () =>{
         console.log("play");
-        this.props.OnPlay(this.props.boxProp.id);
-        console.log(`play : ${this.props.boxProp.id}`);
+        this.props.OnPlay(this.props.boxProp);
+        console.log(`play : ${this.props.boxProp}`);
     }
     
     
