@@ -11,9 +11,9 @@ class Play extends Component {
 
         return (
             <> 
-             <iframe className="player" title="youtube video player" type="text/html" width="800" height="480" 
+             <iframe className="player" title="youtube video player" type="text/html" width="100%" height="500" 
                 src={`https://www.youtube.com/embed/${selectedVideo.id}?autoplay=1`}
-                frameBorder="1" allowFullScreen={true}></iframe>
+                frameBorder="0" allowFullScreen={true}></iframe>
             <div className='selectedDescription'><br></br>
                 <span className='selectedTitle'>Title : {selectedVideo.name.title}</span><br></br>
                 <span className='selectedPublishedAt'>Published : {selectedVideo.name.publishedAt}</span><br></br>

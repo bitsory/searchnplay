@@ -1,5 +1,6 @@
 body {
-  width: 80%;
+
+  max-width: 70rem;
   margin: auto;
 }
 
@@ -11,12 +12,17 @@ button {
   
 }
 
+li {
+  list-style: none;
+}
+
 .mainPage {
   display: grid;
   grid-template-columns: 50% 50%;
   
   justify-content: center;
   gap: 0.3em;
+  padding: .2em .2em 0em .2em;
 
 }
 
@@ -25,73 +31,77 @@ button {
   display: flex;
   background-color: black;
   color: white;
+  width: 100%;
+  height: 4rem;
   align-items: center;
-  justify-content: center;
-  margin: auto;
-  font-weight: bolder;
+  /* justify-content: center; */
+  /* margin: auto; */
+  /* font-weight: bolder; */
 
 
 }
-/* 
-.search-form {
-  
-  color: white;
-} */
 
 .navbar_logo {
+  display: flex;
+  /* color: red; */
   
-  color: red;
-  font-size: 2rem;
-  margin-right: 10px;
+  margin: 2rem;
   text-align: center;
-  /* align-items: center; */
+  align-items: center;
   
   
 }
 
-/* .fab fa-youtube {
+.fa-youtube {
   color: red;
-  margin: 10px;
-} */
+  font-size: 2.7rem;
+  
+}
+
+
+.search-form {
+  display: flex;
+  width: 100%;
+  flex-basis: auto;
+  align-items: center;
+  margin-right: 2rem;
+}
 
 .search-input {
-  margin: 10px;
-  height: 1.5rem;
+  /* display: flex; */
+  flex-basis: 100%;
+  /* margin: 10px; */
+  height: 2.5rem;
   outline: none;
+  font-size: 1.5rem;
 }
 
 .search-btn {
   
   background-color: white;
   color: black;
-  height: 1.8rem;
-  width: 1.8rem;
+  height: 2.5rem;
+  
   
 }
 
 .showbox {
-  display: inline-flex;
   
-  /* width: 100%; */
-  height: 10rem;
-  border: 2px solid lightgray;
-  margin: 5px;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+  padding: 0.2em;  
+  border: 1px solid darkblue;  
   transition: transform 200ms ease-in;
   
 
 }
 
 .showbox:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .video {
   display: inline-flex;
   width: 100%;
-  margin: 5px;
+  height: 100%;
   
   cursor: pointer;
   transition: transform 200ms ease-in;
@@ -101,59 +111,62 @@ button {
 
 
 .thumbNail {
-  width: 45%;  
-  margin: 5px;
-  padding: 3px;
-  border: 2px solid lightgray;
+  width: 40%;  
+  height: 100%;
+  
+  padding: .2em;
+  
 }
 
 
 
 .videoTitle {
-  padding: 3px;
-  font-size: 1rem;
+  padding: .5em;
+  font-size: 0.9em;
   font-weight: bold;
 }
 
 .channelTitle {
-  padding: 3px;
-  font-size: 0.8rem;
+  padding: .5em;
+  font-size: 0.7rem;
 }
 
 .playPage {
   width: 100%;
-    display: inline-flex;
+  display: inline-flex;
+  
    
-    
 }
 
-.playingVideo {
-  display: flex;
-  flex-direction: column;
-  
-  margin-top: 0.2rem;
-  
-  
+
+.playingVideo {    
+  position: relative;  
+  flex-direction: column;  
+  width: 100%;
+  margin-right: 0.2rem;
 }
 
 .player {
-  position: sticky;
-  top: 0px;
   
+  top: 0;
+  left: 0 ;
+  right: 0;
+  bottom: 0;
+  width: 100%;
   
 }
-
 
 
 .playPageList {
+  width: 35%;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin-top: 0.2rem;
 }
 
 .playPage .showbox  { 
-  width: 98%; 
-  min-height: 100px;
+  width: 100%; 
+  /* min-height: 100px; */
  
   margin-bottom: 0.2rem;
 
@@ -161,17 +174,54 @@ button {
 }
 
 .playPageList .videoTitle, .channelTitle {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
+  font-weight: normal;
+}
+
+.playPageList .channelTitle {
+  font-size: 0.6rem;
 }
 
 .selectedDescription {
   display: flex;
   flex-direction: column;
-  width: 640px;
-  padding: 3px;
+  
+  width: 97%;
+  padding: 0.5rem;
+  /* margin: 0; */
 }
 
+@media screen and (max-width: 48rem) {
+  
+  .navbar_title {
+    display: none;
+  }
 
+  .search-input {
+    width: 50%;
+    flex-basis: none;
+  }
+
+
+  .mainPage {
+    grid-template-columns: 100%;
+    padding: 0.5 rem;
+  }
+  
+  .playPage {
+    
+    flex-direction: column;
+  }
+
+  .playPageList {
+    width: 100%;
+    padding: 0em 0.2em 0em 0.2em;
+  }
+
+  .selectedDescription {
+    display: none;
+  }
+}
 
 
 

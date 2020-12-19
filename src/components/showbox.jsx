@@ -4,9 +4,9 @@ class Showbox extends Component {
     
     
     play = () =>{
-        console.log("play");
+        
         this.props.OnPlay(this.props.boxProp);
-        console.log(`play : ${this.props.boxProp}`);
+        
     }
     
     
@@ -19,17 +19,17 @@ class Showbox extends Component {
         
         return (
             <>
-                <div className="showbox">
-                        <span className='video' onClick={this.play}>
-                            <embed className='thumbNail' type="image/jpg" src={thumbNail}></embed>
+                <li className="showbox">
+                        <div className='video' onClick={this.play}>
+                            <embed className='thumbNail' type="image/jpg" src={thumbNail} alt='thumbnail'></embed>
                             <div className='description'>
                             <div className='videoTitle'>{videoTitle}</div>
                             <div className='channelTitle'>{channelTitle}</div>
                             </div>
-                        </span>
+                        </div>
                 
                     
-                </div>  
+                </li>  
             </>
         );
     }
